@@ -1,23 +1,3 @@
-### HyperionDev notes
-# I thought immediately printing the menu after every command was clunky and a bit confusing,
-# so I did some googling to check for a method to await a keypress /without/ using input();
-# This pointed me to os.system('pause'): https://www.geeksforgeeks.org/make-python-wait-for-a-pressed-key/
-#
-# I set global variables task_filename and user_filename to replace the fixed filenames throughout the code;
-# I also replaced the body of the code with a main() function and compartmentalised all code into respective functions. 
-#
-# When working with the task modifier, I had to do research on the best method to edit part of a file;
-# This was my main source: https://stackoverflow.com/questions/4719438/editing-specific-line-in-text-file-in-python
-#
-# I also had to look up a way to list all the keys in an object, so I could expand the task modifier features;
-# this was a good help: https://www.geeksforgeeks.org/python-dictionary-keys-method/
-# And this helped me learn how to loop over items AND their indices:
-# https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops
-#
-# The requirements for the 'display statistics' action were slightly vague - I didn't know if I should expand the function
-# beyond just showing the number of tasks and users. Since I was trying to reuse code, I chose to export a few extra
-# statistics to print for quick reference/overview.
-
 # ===== Importing libraries ===========
 import os
 from datetime import datetime, date
@@ -33,6 +13,8 @@ class UserQuit(Exception):
 
 # ===== Functions for main body =======
 # ==== Data Processing ====
+# These two sets of code were provided by HyperionDev and were moved into their own functions, but otherwise mostly unedited.
+
 def compile_tasklist(task_filename):
     # - Create tasks.txt if it doesn't exist
     if not os.path.exists(task_filename):
@@ -155,6 +137,8 @@ def reg_user():
         print()
         os.system('pause')
 
+# The add_task function was left mostly unchanged from the version provided by HyperionDev, except a tweak to check whether
+# the assigned task name would be unique.
 def add_task():
     '''
     Allow a user to add a new task to task.txt file;
